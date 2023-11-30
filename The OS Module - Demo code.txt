@@ -1,0 +1,27 @@
+#Objective- To explore the functions of the OS module
+
+import os
+
+os.access('C:\\Users\\Admin\\Documents\\abcde.txt',os.F_OK)
+os.chdir('C:\\Users\\Admin\\Documents')
+f=os.open('abcde.txt',os.O_RDWR)
+os.write(f,b'hi')
+*Check file*
+os.ftruncate(f,10)
+os.isatty(f)
+os.lseek(f,0,0)
+os.read(f,12)
+os.close(f)
+
+os.getcwd()
+os.listdir()
+p=os.pipe()
+a='mkdir nwdir'
+b=os.popen(a,'r',1)
+*Check directory*
+os.rename('nwdir','newdir')
+*Check directory*
+os.removedirs('nwdir')
+
+for root, dirs, files in os.walk('C:\\Users\\Admin\\Documents'):
+	print(root,len(dirs),len(files))

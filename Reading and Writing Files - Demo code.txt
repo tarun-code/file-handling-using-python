@@ -1,0 +1,77 @@
+#Objective- To read and write files with Python
+
+*open Python37-32, create a file Shopping list.txt*
+
+todo=open('Shopping list.txt','r+')
+todo.close()
+
+---------------------------------------------
+
+try:
+        todo=open('Shopping list.txt','r+')
+        print(1/0)
+finally:
+        todo.close()
+
+---------------------------------------------
+
+with open('Shopping list.txt') as todo:
+	todo.read()
+
+---------------------------------------------
+
+todo=open('Shopping list.txt','r')
+todo.read(5)
+todo.read()
+todo.read()
+
+---------------------------------------------
+
+todo.tell()
+todo.seek(73)
+todo.read()
+
+---------------------------------------------
+
+todo.seek(0)
+todo.readline()
+todo.readlines()
+
+todo.seek(0)
+for line in todo:
+	print(line,end='')
+
+---------------------------------------------
+
+todo.close()
+todo=open('Shopping list.txt','a')
+todo.write('Break a leg')
+todo.close()
+with open('Shopping list.txt','r') as todo:
+	todo.read()
+
+----------------------------------------------
+
+todo=open('Shopping list.txt','r')
+todo.detach()
+todo=open('Shopping list.txt','r')
+todo.fileno()
+todo.flush()
+todo.isatty()
+todo.readable()
+todo.readline(7)
+todo.readline(-1)
+todo.seekable()
+
+todo=open('Shopping list.txt','a')
+todo.truncate(60)
+todo=open('Shopping list.txt','r')
+todo.read()
+
+todo.writable()
+
+todo=open('Shopping list.txt','a')
+todo.write('Okay, bye')
+todo.writelines(['\nOne','\nTwo','\nThree'])
+todo=open('Shopping list.txt','r')
+print(todo.read())

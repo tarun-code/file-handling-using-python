@@ -1,0 +1,35 @@
+#Objective- To learn to rename files using Python
+
+*do the needful*
+
+import os
+os.chdir('C:\\Users\\Admin\\Documents')
+print(f"Files: {os.listdir()}")
+os.rename('Pics', 'Pictures')
+os.listdir()
+os.rename('Pictures', 'Sims')
+
+os.chdir('C:\\Users\\Admin\\Documents\\Pictures')
+count=1
+for file in os.listdir():
+	src=file
+	dst="Dog"+str(count)+".jpg"
+	os.rename(src,dst)
+	count+=1
+
+os.chdir('C:\\Users\\Admin\\Documents')
+for file in os.listdir():
+	src=file
+	if src=='DataFlair logo.png':
+		dst="DF logo"
+		os.rename(src,dst)
+
+count,total=1,4
+while(count<=4):
+	for file in os.listdir():
+		src=file
+		if src=='Dog'+str(total)+'.jpg':
+			dst='Dog'+str(total+1)+'.jpg'
+			os.rename(src,dst)
+			total-=1
+			count+=1

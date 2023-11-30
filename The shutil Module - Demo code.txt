@@ -1,0 +1,17 @@
+#Objective- To make use of the shutil module in Python
+
+*Do the needful*
+
+import shutil
+import os
+os.chdir('C:\\Users\\Admin\\Documents\\copies')
+f1=open('one.txt','r')
+f2=open('two.txt','w')
+shutil.copyfileobj(f1,f2)
+f2.close()
+shutil.copyfile('one.txt','three.txt')
+shutil.copy('one.txt','four.txt')
+shutil.copy2('one.txt','five.txt')
+
+shutil.make_archive('arc1','zip','C:\\Users\\Admin\\Documents\\copies')
+shutil.get_archive_formats()

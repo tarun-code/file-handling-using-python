@@ -1,0 +1,34 @@
+#Objective- To manipulate directories and files with Python
+
+import os
+os.getcwd()
+
+os.chdir('C:\\Users\\Admin\\Documents')
+os.getcwd()
+
+os.listdir()
+
+os.mkdir('Grinch')
+os.rename('Grinch','Mr. Grinch')
+os.listdir()
+*Create a file Christmas.txt in it*
+os.rmdir('Mr. Grinch')
+
+os.remove('./Mr. Grinch/Christmas.txt')
+os.rmdir('Mr. Grinch')
+
+-------------------------------------------------------------
+
+os.path.join('C:','Users','Admin','Desktop')
+os.path.split('C:Users\\Admin\\Desktop')
+
+os.path.exists('C:\\Users\\Admin\\Documents')
+*Create file four.txt in Documents*
+os.path.exists('C:\\Users\\Admin\\Documents\\four.txt')
+os.path.isdir('C:\\Users\\Admin\\Documents')
+os.path.isdir('C:\\Users\\Admin\\Documents\\four.txt')
+
+--------------------------------------------------------------
+
+for roots, dirs, files in os.walk('C:\\Users\\Admin\\Documents'):
+	print(roots, dirs, files)

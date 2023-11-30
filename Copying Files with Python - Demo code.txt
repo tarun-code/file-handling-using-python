@@ -1,0 +1,41 @@
+#Objective- To explore different ways to copy files using Python
+
+import os
+
+*in Notes in Documents, create a file one.txt, and also get to that locations with os.chdir()*
+os.chdir('C:\\Users\\Admin\\Documents\\Notes')
+
+os.popen('copy one.txt two.txt')
+os.system('copy one.txt three.txt')
+
+import shutil
+from threading import Thread
+Thread(target=shutil.copy, args=['one.txt','four.txt']).start()
+
+import subprocess
+status=subprocess.call('copy one.txt five.txt', shell=True)
+if status!=0:
+	if status<0: print(f"Killed by signal {status}")
+	else: print(f"Command failed with return code {status}")
+else: print("Successfully executed command")
+
+status=subprocess.check_output('copy one.txt six.txt', shell=True)
+
+shutil.copyfile('one.txt','seven.txt')
+shutil.copy('one.txt','eight.txt')
+shutil.copy2('one.txt','nine.txt')
+
+one,eleven=open('one.txt','rb'),open('eleven.txt','wb')
+shutil.copyfileobj(one,eleven)
+
+
+
+
+
+
+#Folder to Folder- Folder f1 has a file one.txt; Copy it to file two.txt in folder f2 in the same root folder.
+
+*do the needful*
+
+one,two=open('one.txt','rb'),open('C:\\Users\\Admin\\Documents\\try\\f2\\two.txt','wb')
+shutil.copyfileobj(one,two)

@@ -1,0 +1,55 @@
+#Objective- To zip files using Python
+
+from zipfile import ZipFile
+import os
+os.chdir('C:\\Users\\Admin\\Documents')
+file='Demo.zip'
+with ZipFile(file,'r') as zip:
+zip.printdir()
+print("Extracting files")
+zip.extractall()
+print("Finished extracting")
+
+with ZipFile(file,'r') as zip:
+zip.extract('Demo/comment.txt')
+
+
+
+
+
+
+def get_paths(directory):
+paths=[]
+for root, directories, files in os.walk(directory):
+for filename in files:
+filepath=os.path.join(root,filename)
+paths.append(filepath)
+return paths
+
+directory='./Demo'
+paths=get_paths(directory)
+for file in paths:
+print(file)
+with ZipFile('Demo.zip','w') as zip:
+for file in paths:
+zip.write(file)
+
+
+
+
+
+
+
+
+
+import datetime
+file="Demo.zip"
+with ZipFile(file,'r') as zip:
+for info in zip.infolist():
+print(info.filename)
+print('\tModified:\t'+str(datetime.datetime(*info.date_time)))
+print('\tSystem:\t\t'+str(info.create_system)+'(0=Windows,3=Unix)')
+print('\tZIP version:\t'+str(info.create_version))
+print('\tCompressed:\t'+str(info.compress_size)+' bytes')
+print('\tUncompressed:\t'+str(info.file_size)+' bytes')
+
